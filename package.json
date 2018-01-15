@@ -1,0 +1,22 @@
+{
+  "name": "estree-eval",
+  "version": "1.0.0",
+  "description": "Evaluate estrees.",
+  "main": "dist/index.js",
+  "author": "Jeremy Danyow <jdanyow@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "test": "tsc && node dist/test.js"
+  },
+  "devDependencies": {
+    "@types/acorn": "^4.0.3",
+    "@types/estree": "^0.0.38",
+    "@types/node": "^9.3.0",
+    "acorn": "^5.3.0",
+    "typescript": "^2.6.2"
+  },
+  "dependencies": {
+    "tslib": "^1.8.1"
+  }
+}
