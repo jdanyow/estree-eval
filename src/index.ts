@@ -83,7 +83,7 @@ const evaluateFns: { [type: string]: EvaluateFunction<any> } = {
       throw new Error('async functions are not supported.');
     }
     if (node.generator) {
-      throw new Error('generateor functions are not supported.');
+      throw new Error('generator functions are not supported.');
     }
     if (!node.expression) {
       throw new Error('function body must be a single expression.');
@@ -260,7 +260,7 @@ const evaluateFns: { [type: string]: EvaluateFunction<any> } = {
 
   UnaryExpression(node: UnaryExpression, scope: any) {
     if (!node.prefix) {
-      throw new Error(`${node.type} with prefix: false and operator "${node.operator}" not supported.`);
+      throw new Error(`${node.type} with prefix: "false" and operator "${node.operator}" not supported.`);
     }
     if (node.operator === 'delete') {
       if (node.argument.type === 'Identifier') {

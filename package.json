@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Evaluate estrees.",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "author": "Jeremy Danyow <jdanyow@gmail.com>",
   "license": "MIT",
   "scripts": {
