@@ -4,4 +4,15 @@
 [![npm package](https://img.shields.io/npm/v/estree-eval.svg)](https://www.npmjs.com/package/estree-eval)
 [![Greenkeeper badge](https://badges.greenkeeper.io/jdanyow/estree-eval.svg)](https://greenkeeper.io/)
 
-Evaluate estrees.
+Evaluate estrees:
+
+```js
+import { evaluate } from 'estree-eval';
+import { parseExpressionAt } from 'acorn';
+
+const ast = parseExpressionAt('message.toUpperCase()', 0);
+
+const scope = { message: 'hello world' };
+
+const result = evaluate(ast, scope); // HELLO WORLD
+```

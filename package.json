@@ -5,6 +5,10 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "author": "Jeremy Danyow <jdanyow@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jdanyow/estree-eval.git"
+  },
   "license": "MIT",
   "scripts": {
     "build": "tsc",
