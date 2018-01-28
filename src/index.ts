@@ -2,6 +2,7 @@ import {
   ArrayExpression,
   ArrowFunctionExpression,
   AssignmentExpression,
+  AssignmentOperator,
   BinaryExpression,
   CallExpression,
   ConditionalExpression,
@@ -10,11 +11,10 @@ import {
   Literal,
   LogicalExpression,
   MemberExpression,
+  Node,
   SpreadElement,
   TemplateLiteral,
   UnaryExpression,
-  AssignmentOperator,
-  Node,
 } from 'estree';
 
 export function evaluate(node: Expression, scope: any) {
@@ -69,9 +69,7 @@ function assign(object: any, name: string, value: any, operator: AssignmentOpera
   }
 }
 
-interface EvaluateFunction<T extends Node> {
-  (node: T, scope: any): any;
-}
+type EvaluateFunction<T extends Node> = (node: T, scope: any) => any;
 
 const evaluateFns: { [type: string]: EvaluateFunction<any> } = {
   ArrayExpression(node: ArrayExpression, scope: any) {
@@ -140,9 +138,11 @@ const evaluateFns: { [type: string]: EvaluateFunction<any> } = {
     const right = evaluate(node.right, scope);
     switch (node.operator) {
       case '==':
+        // tslint:disable-next-line:triple-equals
         return left == right;
       case '!=':
-        return left == right;
+        // tslint:disable-next-line:triple-equals
+        return left != right;
       case '===':
         return left === right;
       case '!==':
@@ -236,7 +236,7 @@ const evaluateFns: { [type: string]: EvaluateFunction<any> } = {
       case 'Super':
         throw new Error(`Cannot call ${node.object.type}`);
       default:
-        const object = evaluate(node.object, scope)
+        const object = evaluate(node.object, scope);
         return evaluate(node.property, object);
     }
   },
@@ -274,7 +274,7 @@ const evaluateFns: { [type: string]: EvaluateFunction<any> } = {
         const name = evaluate(node.argument.property, scope);
         return delete object[name];
       }
-      throw new Error(`Unsupported delete expression argument: ${node.argument.type}.`)
+      throw new Error(`Unsupported delete expression argument: ${node.argument.type}.`);
     }
     const value = evaluate(node.argument, scope);
     switch (node.operator) {
@@ -289,9 +289,10 @@ const evaluateFns: { [type: string]: EvaluateFunction<any> } = {
       case 'typeof':
         return typeof value;
       case 'void':
+        // tslint:disable-next-line:no-unused-expression
         return void value;
       default:
         throw new Error(`Unsupported ${node.type} operator "${node.operator}".`);
     }
-  }
+  },
 };

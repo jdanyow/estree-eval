@@ -1,5 +1,5 @@
-import { deepStrictEqual, strictEqual } from 'assert';
 import { parseExpressionAt } from 'acorn';
+import { deepStrictEqual, strictEqual } from 'assert';
 import { evaluate } from './index';
 
 function parse(expression: string) {

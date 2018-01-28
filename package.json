@@ -8,16 +8,16 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc",
-    "test": "tsc && node dist/test.js"
+    "lint": "tslint --project .",
+    "pretest": "yarn run build",
+    "test": "node dist/test.js"
   },
   "devDependencies": {
     "@types/acorn": "^4.0.3",
     "@types/estree": "^0.0.38",
-    "@types/node": "^9.3.0",
+    "@types/node": "^9.4.0",
     "acorn": "^5.3.0",
+    "tslint": "^5.9.1",
     "typescript": "^2.6.2"
-  },
-  "dependencies": {
-    "tslib": "^1.8.1"
   }
 }
