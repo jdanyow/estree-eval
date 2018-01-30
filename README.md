@@ -16,3 +16,5 @@ const scope = { message: 'hello world' };
 
 const result = evaluate(ast, scope); // HELLO WORLD
 ```
+
+[Try this package](https://runkit.com/jdanyow/estree-eval) in your browser using runkit.
