@@ -12,9 +12,10 @@
   version "0.0.38"
   resolved "https://registry.yarnpkg.com/@types/estree/-/estree-0.0.38.tgz#c1be40aa933723c608820a99a373a16d215a1ca2"
 
-"@types/node@^9.4.0":
-  version "9.4.0"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-9.4.0.tgz#b85a0bcf1e1cc84eb4901b7e96966aedc6f078d1"
+"@types/node@^13.13.0":
+  version "13.13.0"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-13.13.0.tgz#30d2d09f623fe32cde9cb582c7a6eda2788ce4a8"
+  integrity sha512-WE4IOAC6r/yBZss1oQGM5zs2D7RuKR6Q+w+X2SouPofnWn+LbCqClRyhO3ZE7Ix8nmFgo/oVuuE01cJT2XB13A==
 
 acorn@^5.3.0:
   version "5.3.0"
