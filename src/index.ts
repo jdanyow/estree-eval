@@ -237,7 +237,11 @@ const evaluateFns: { [type: string]: EvaluateFunction<any> } = {
         throw new Error(`Cannot call ${node.object.type}`);
       default:
         const object = evaluate(node.object, scope);
-        return evaluate(node.property, object);
+        if (node.computed) {
+          return object[evaluate(node.property, scope)];
+        } else {
+          return evaluate(node.property, object);
+        }
     }
   },
 
